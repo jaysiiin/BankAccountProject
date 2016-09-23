@@ -15,7 +15,7 @@ namespace BankAccountProject
 
 
         //properties
-        public double UserMoneyChekcing
+        public double UserMoneyChecking
         {
             get { return this.userMoneyChecking; }
             set { userMoneyChecking = value; }
@@ -24,7 +24,10 @@ namespace BankAccountProject
 
         
         //constructors
-
+        public void DisplayChecking()
+        {
+            Console.WriteLine("Your current checking account balance is: $" + userMoneyChecking);
+        }
 
     }
 }

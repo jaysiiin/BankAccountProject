@@ -22,7 +22,10 @@ namespace BankAccountProject
 
         }
         //constructors
-
+        public void DisplaySaving()
+        {
+            Console.WriteLine("Your current saving account balance is: $" + userMoneySaving);
+        }
 
     }
 }

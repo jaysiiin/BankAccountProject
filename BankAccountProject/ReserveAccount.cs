@@ -22,7 +22,10 @@ namespace BankAccountProject
 
         }
         //constructors
-
+        public void DisplayRes()
+        {
+            Console.WriteLine("Your current reservation account balance is: $" + userMoneyRes);
+        }
 
     }
 }
