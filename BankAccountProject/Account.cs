@@ -9,62 +9,23 @@ namespace BankAccountProject
     class Account
     {
         //fields
-        private double userStartMoney;
-        private double userAddMoney;
-        private double userSubMoney;
-        private double checkingAmount;
-        private double resAmount;
-        private double savingAmount;
 
-
-        //properties
-        public double UserAddMoney
-        {
-            get { return this.userAddMoney; }
-            set { userAddMoney = value; }
-
-        }
-
-        public double UserSubMoney
-        {
-            get { return this.userSubMoney; }
-            set { userSubMoney = value; }
-
-        }
-
-        public double CheckingAmount
-        {
-            get { return this.checkingAmount; }
-            set { checkingAmount = value; }
-
-        }
-
-        public double SavingAmount
-        {
-            get { return this.savingAmount; }
-            set { savingAmount = value; }
-
-        }
-        public double ResAmount
-        {
-            get { return this.resAmount; }
-            set { resAmount = value; }
-
-        }
-
-       
-
-
+        public double checkingAmount;
+        public double resAmount;
+        public double savingAmount;
+     
+      
         //constructors
-        //public CheckingAccountHardCode()
-        //{
+        public Account()
+        {
 
-        //    checkingAmount = 500;
-        //}
+            checkingAmount = 500;
+            savingAmount = 500;
+            resAmount = 500;
+        }
 
 
-        //method
-
+        
 
 
     }

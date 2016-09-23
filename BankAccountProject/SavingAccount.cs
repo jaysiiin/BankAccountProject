@@ -9,22 +9,29 @@ namespace BankAccountProject
     class SavingAccount : Account
     {
         //fields
-        private double userMoneySaving;
+        private double userAddSavings;
+        private double userSubSavings;
 
 
 
 
         //properties
-        public double UserMoneySaving
+        public double AddSavings
         {
-            get { return this.userMoneySaving; }
-            set { userMoneySaving = value; }
-
+            get { return this.userAddSavings; }
+            set { userAddSavings = value; }
         }
-        //constructors
-        public void DisplaySaving()
+
+        public double SubSavings
         {
-            Console.WriteLine("Your current saving account balance is: $" + userMoneySaving);
+            get { return this.userSubSavings; }
+            set { userSubSavings = value; }
+        }
+
+        //constructors
+        public void DisplaySavingAccount()
+        {
+            Console.WriteLine("Savings: ${0}", savingAmount);
         }
 
     }

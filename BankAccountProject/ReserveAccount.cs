@@ -8,23 +8,30 @@ namespace BankAccountProject
 {
     class ReserveAccount : Account
     {
-         //fields
-        private double userMoneyRes;
+        //fields
+        private double userAddRes;
+        private double userSubRes;
 
-        
+
 
 
         //properties
-        public double UserMoneyRes
+        public double AddRes
         {
-            get { return this.userMoneyRes; }
-            set { userMoneyRes = value; }
-
+            get { return this.userAddRes; }
+            set { userAddRes = value; }
         }
-        //constructors
-        public void DisplayRes()
+
+        public double SubRes
         {
-            Console.WriteLine("Your current reservation account balance is: $" + userMoneyRes);
+            get { return this.userSubRes; }
+            set { userSubRes = value; }
+        }
+
+        //constructors
+        public void DisplayResAccount()
+        {
+            Console.WriteLine("Reserved: ${0}", resAmount);
         }
 
     }
