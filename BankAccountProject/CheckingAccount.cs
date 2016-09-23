@@ -9,13 +9,22 @@ namespace BankAccountProject
     class CheckingAccount : Account
     {
         //fields
+        private double userMoneyChecking;
+
         
-        
+
 
         //properties
+        public double UserMoneyChekcing
+        {
+            get { return this.userMoneyChecking; }
+            set { userMoneyChecking = value; }
 
-        //constructors
+        }
 
         
+        //constructors
+
+
     }
 }

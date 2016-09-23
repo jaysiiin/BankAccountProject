@@ -9,22 +9,22 @@ namespace BankAccountProject
     class Account
     {
         //fields
-        private double userMoney;
-        private string userName;
+        private double userAddMoney;
+        private double userSubMoney;
 
 
         //properties
-        public double UserMoney
+        public double UserAddMoney
         {
-            get { return this.userMoney; }
-            set { userMoney = value; }
+            get { return this.userAddMoney; }
+            set { userAddMoney = value; }
 
         }
 
-        public string UserName
+        public double UserSubMoney
         {
-            get { return this.userName; }
-            set { userName = value; }
+            get { return this.userSubMoney; }
+            set { userSubMoney = value; }
 
         }
 

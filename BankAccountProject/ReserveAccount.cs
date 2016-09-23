@@ -8,10 +8,19 @@ namespace BankAccountProject
 {
     class ReserveAccount : Account
     {
-        //fields
+         //fields
+        private double userMoneyRes;
+
+        
+
 
         //properties
+        public double UserMoneyRes
+        {
+            get { return this.userMoneyRes; }
+            set { userMoneyRes = value; }
 
+        }
         //constructors
 
 
