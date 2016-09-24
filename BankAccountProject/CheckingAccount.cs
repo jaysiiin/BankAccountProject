@@ -33,7 +33,7 @@ namespace BankAccountProject
         public void DisplayCheckingAccount()
         {
             Console.WriteLine();
-            Console.WriteLine("Checking: ${0}", checkingAmount);
+            Console.WriteLine("Checkings: ${0}", checkingAmount);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace BankAccountProject
         public double resAmount;
         public double savingAmount;
      
+     
       
         //constructors
         public Account()
@@ -24,7 +25,16 @@ namespace BankAccountProject
             resAmount = 500;
         }
 
+        public void WithdrawDisplay()
+        {
+            Console.WriteLine("Which account would you like to withdraw from?\nCheckings, Resereved, or Savings account? Enter \"quit\" to exit.");
+        }
 
+        public void DepositDisplay()
+        {
+            Console.WriteLine("Which account would you like to deposit?\nCheckings, Resereved, or Savings account? Enter \"quit\" to exit.");
+        }
+      
         
 
 
