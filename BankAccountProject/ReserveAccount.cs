@@ -9,8 +9,8 @@ namespace BankAccountProject
     class ReserveAccount : Account
     {
         //fields
-        private double userAddRes;
-        private double userSubRes;
+        private double addRes;
+        private double subRes;
 
 
 
@@ -18,14 +18,14 @@ namespace BankAccountProject
         //properties
         public double AddRes
         {
-            get { return this.userAddRes; }
-            set { userAddRes = value; }
+            get { return this.addRes; }
+            set { addRes = value; }
         }
 
         public double SubRes
         {
-            get { return this.userSubRes; }
-            set { userSubRes = value; }
+            get { return this.subRes; }
+            set { subRes = value; }
         }
 
         //constructors

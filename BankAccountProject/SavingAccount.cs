@@ -9,8 +9,8 @@ namespace BankAccountProject
     class SavingAccount : Account
     {
         //fields
-        private double userAddSavings;
-        private double userSubSavings;
+        private double addSavings;
+        private double subSavings;
 
 
 
@@ -18,14 +18,14 @@ namespace BankAccountProject
         //properties
         public double AddSavings
         {
-            get { return this.userAddSavings; }
-            set { userAddSavings = value; }
+            get { return this.addSavings; }
+            set { addSavings = value; }
         }
 
         public double SubSavings
         {
-            get { return this.userSubSavings; }
-            set { userSubSavings = value; }
+            get { return this.subSavings; }
+            set { subSavings = value; }
         }
 
         //constructors
