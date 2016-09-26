@@ -1,2 +1,2 @@
-sam
-1234567
+user name: sam
+user account #: 1234567
