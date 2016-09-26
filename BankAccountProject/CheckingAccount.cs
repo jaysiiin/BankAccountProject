@@ -42,7 +42,11 @@ namespace BankAccountProject
         public void AddUserChecking(double userNumChecking)
         {
             double addChecking = checkingAmount + userNumChecking;
+            Console.WriteLine();
             Console.WriteLine("$" + userNumChecking + " has been deposited to your checking account");
+            Console.WriteLine("Your new balance is $" + addChecking);
+            Console.WriteLine("Thank you for your time, your money is in good hands.");
+            Environment.Exit(0);
 
         }
 
@@ -50,13 +54,14 @@ namespace BankAccountProject
         public void SubUserChecking (double userNumChecking)
         {
             double subChecking = checkingAmount - userNumChecking ;
+            Console.WriteLine();
             Console.WriteLine("$" + userNumChecking + " has been withdrawn from your checking account");
+            Console.WriteLine("Your new balance is $" + subChecking);
+            Console.WriteLine("Enjoy your money and spend it wisely...");
+            Environment.Exit(0);
 
         }
 
-        internal void SubUserChecking(string userNumChecking)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

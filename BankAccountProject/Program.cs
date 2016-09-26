@@ -14,40 +14,32 @@ namespace BankAccountProject
             //Account 1
             CheckingAccount account1Checking = new CheckingAccount();
             ReserveAccount account1Res = new ReserveAccount();
-            SavingAccount account1Savings = new SavingAccount();
+            SavingAccount account1Saving = new SavingAccount();
             Account Greeting = new Account();
-            
-            //Account 2
-            CheckingAccount account2Checking = new CheckingAccount();
-            ReserveAccount account2Res = new ReserveAccount();
-            SavingAccount account2Savings = new SavingAccount();
-
-            
+            StreamWriter Sam = new StreamWriter("Sam.txt");
+            StreamWriter Account = new StreamWriter("Account.txt");
 
             //Intro
             Console.WriteLine("\n\n");
             Console.WriteLine("Hello, welcome to the automated bank teller!\nWhich account are you accessing today?");
-            Console.WriteLine("Samuel Sawyer or Helen Hunter?");
+            Console.WriteLine("Sam S.?");
             string choosenOne = Console.ReadLine();
 
             //Chosing a customer 
-            StreamWriter Sam = new StreamWriter("Sam.txt");
+            
             using (Sam)
-
             {
                 Sam.WriteLine(choosenOne);
 
                 do
                 {
-                    if (choosenOne.ToLower() == "samuel sawyer")
+                    if (choosenOne.ToLower() == "sam s." || choosenOne.ToLower() == "sam s" || choosenOne.ToLower() == "sam")
                     {
-
                         Console.Clear();
                         Console.WriteLine("\n\n");
                         Console.WriteLine("Please enter your 7 digit account number.");
                         string userAccountNum = Console.ReadLine();
                         Sam.WriteLine(userAccountNum);
-
                         do
                         {
                             if (userAccountNum.Length > 7 || userAccountNum.Length < 7)
@@ -57,17 +49,13 @@ namespace BankAccountProject
                                 Console.WriteLine("Please reenter the your 7 digit account number.");
                                 userAccountNum = Console.ReadLine();
                             }
-
                         } while (userAccountNum.Length > 7 || userAccountNum.Length < 7);
-
-
                         Console.WriteLine("Please enter your password.");
                         string password = Console.ReadLine();
                         if (password == "password1")
                         {
                             Console.Clear();
                             break;
-
                         }
                         else
                         {
@@ -75,58 +63,35 @@ namespace BankAccountProject
                             Console.WriteLine("That wasn't the correct password! Please enter the correct password.");
                             password = Console.ReadLine();
                         }
-
-
-                    }
-
-
-                    else if (choosenOne.ToLower() == "customer 2")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("\n\n");
-                        Console.WriteLine("Please enter your password.");
-                        string password = Console.ReadLine();
-                        if (password == "password2")
-                        {
-                            Console.Clear();
-                            break;
-
-                        }
-                        else
-                        {
-                            Console.Clear();
-                            Console.WriteLine("\n\n");
-                            Console.WriteLine("That wasn't the correct password!");
-                            password = Console.ReadLine();
-                        }
-
-
                     }
                     else
                     {
                         Console.Clear();
                         Console.WriteLine("\n\n");
                         Console.WriteLine("Hello, welcome to the automated bank teller!\nWhich account are you accessing today?");
-                        Console.WriteLine("Samuel Sawyer or Helen Hunter?");
                         Console.WriteLine("That account does not exist in this program.");
                         choosenOne = Console.ReadLine();
-
                     }
-                } while (true);
-            }
-            
+                } while (choosenOne.ToLower() == "sam s." || choosenOne.ToLower() == "sam s" || choosenOne.ToLower() == "sam");
+              
+                } //here the end of the sam writer
 
-                //Account 1 
-                if (choosenOne.ToLower() == "samuel sawyer")
+
+            //Account 1
+            using (Account)
+            {
+                if (choosenOne.ToLower() == "sam s." || choosenOne.ToLower() == "sam s" || choosenOne.ToLower() == "sam")
                 {
+
                     Console.WriteLine("\n\n");
-                    Console.WriteLine("Welcome back {0}, here is your account information.", choosenOne);
+                    Console.WriteLine("Welcome back Sam S., here is your account information.");
                     account1Checking.DisplayCheckingAccount();
                     account1Res.DisplayResAccount();
-                    account1Savings.DisplaySavingAccount();
+                    account1Saving.DisplaySavingAccount();
                     Console.WriteLine("Would you like to withdraw or deposit today?");
                     string choosenWithDepo = Console.ReadLine();
-                    
+                    Account.WriteLine(choosenWithDepo);
+
                     //withdraw
                     if (choosenWithDepo.ToLower() == "withdraw")
                     {
@@ -134,10 +99,11 @@ namespace BankAccountProject
                         Console.WriteLine("\n\n");
                         account1Checking.DisplayCheckingAccount();
                         account1Res.DisplayResAccount();
-                        account1Savings.DisplaySavingAccount();
+                        account1Saving.DisplaySavingAccount();
                         Console.WriteLine();
                         Greeting.WithdrawDisplay();
                         string choosenAccount = Console.ReadLine();
+                        Account.WriteLine(choosenAccount);
 
                         do
                         {
@@ -146,25 +112,34 @@ namespace BankAccountProject
                                 Console.WriteLine("How much would you like to withdraw from your checking accout?");
                                 Console.Write("$");
                                 double userNumChecking = double.Parse(Console.ReadLine());
-                               
                                 account1Checking.SubUserChecking(userNumChecking);
-                                if (userNumChecking == 0) 
+                                Account.WriteLine("-$" + userNumChecking/* + DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss")*/);
+                                if (userNumChecking == 0)
                                 {
-                                        Console.Clear();
-                                        Console.WriteLine("\n\n");
-                                        Console.WriteLine("Thank you for stopping by!");
-                                        Environment.Exit(0);
-                                    
+                                    Console.Clear();
+                                    Console.WriteLine("\n\n");
+                                    Console.WriteLine("Thank you for stopping by!");
+                                    Environment.Exit(0);
+
                                 }
                             }
 
                             else if (choosenAccount.ToLower() == "reserved")
                             {
                                 Console.WriteLine("How much would you like to withdraw from your reserved accout?");
+                                Console.Write("$");
+                                double userNumRes = double.Parse(Console.ReadLine());
+                                Account.WriteLine("-$" + userNumRes/* + DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss")*/);
+                                account1Res.SubUserRes(userNumRes);
+
                             }
                             else if (choosenAccount.ToLower() == "savings")
                             {
-                                Console.WriteLine("How much would you like to withdraw from your savings accout?");
+                                Console.WriteLine("How much would you like to withdraw from your checking accout?");
+                                Console.Write("$");
+                                double userNumSaving = double.Parse(Console.ReadLine());
+                                Account.WriteLine("-$" + userNumSaving + DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss"));
+                                account1Saving.SubUserSaving(userNumSaving);
                             }
                             else if (choosenAccount.ToLower() == "quit")
                             {
@@ -180,7 +155,7 @@ namespace BankAccountProject
                                 Console.WriteLine("\n\n");
                                 account1Checking.DisplayCheckingAccount();
                                 account1Res.DisplayResAccount();
-                                account1Savings.DisplaySavingAccount();
+                                account1Saving.DisplaySavingAccount();
                                 Console.WriteLine();
                                 Greeting.WithdrawDisplay();
                                 Console.WriteLine("That wasn't an options, please pick again from the list");
@@ -188,8 +163,8 @@ namespace BankAccountProject
                             }
 
                         } while (choosenAccount != "");
-                    }
 
+                    }
 
                     //deposit
                     else if (choosenWithDepo.ToLower() == "deposit")
@@ -198,10 +173,13 @@ namespace BankAccountProject
                         Console.WriteLine("\n\n");
                         account1Checking.DisplayCheckingAccount();
                         account1Res.DisplayResAccount();
-                        account1Savings.DisplaySavingAccount();
+                        account1Saving.DisplaySavingAccount();
                         Console.WriteLine();
                         Console.WriteLine("Which account would like to deposit to?\nCheckings, Resereved, or Savings account? Enter \"quit\" to exit.");
                         string choosenAccount = Console.ReadLine();
+
+
+
                         do
                         {
                             if (choosenAccount.ToLower() == "checkings")
@@ -210,15 +188,26 @@ namespace BankAccountProject
                                 Console.Write("$");
                                 double userNumChecking = double.Parse(Console.ReadLine());
                                 account1Checking.AddUserChecking(userNumChecking);
+                                Account.WriteLine("+$" + userNumChecking /*+ DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss")*/);
                                 Console.ReadLine();
                             }
                             else if (choosenAccount.ToLower() == "reserved")
                             {
-
+                                Console.WriteLine("How much would you like to deposit from your reserved accout?");
+                                Console.Write("$");
+                                double userNumRes = double.Parse(Console.ReadLine());
+                                account1Res.AddUserRes(userNumRes);
+                                Account.WriteLine("+$" + userNumRes/* + DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss")*/);
+                                Console.ReadLine();
                             }
                             else if (choosenAccount.ToLower() == "savings")
                             {
-
+                                Console.WriteLine("How much would you like to deposit from your savings accout?");
+                                Console.Write("$");
+                                double userNumSavings = double.Parse(Console.ReadLine());
+                                account1Saving.AddUserSaving(userNumSavings);
+                                Account.WriteLine("+$" + userNumSavings/* + DateTime.Now.ToString("yyyy.MM.dd hh:mm:ss")*/);
+                                Console.ReadLine();
                             }
                             else if (choosenAccount.ToLower() == "quit")
                             {
@@ -234,7 +223,7 @@ namespace BankAccountProject
                                 Console.WriteLine("\n\n");
                                 account1Checking.DisplayCheckingAccount();
                                 account1Res.DisplayResAccount();
-                                account1Savings.DisplaySavingAccount();
+                                account1Saving.DisplaySavingAccount();
                                 Console.WriteLine();
                                 Console.WriteLine("Which account would like to deposit to?\nCheckings, Resereved, or Savings account? Enter \"quit\" to exit.");
                                 Console.WriteLine("That wasn't an options, please pick again from the list");
@@ -242,15 +231,23 @@ namespace BankAccountProject
                             }
                         } while (choosenAccount != "");
                     }
-                    
                 }
 
+            }
 
-                //Account 2
-                else if (choosenOne.ToLower() == "customer 2")
-                {
-                    Console.WriteLine("yous is right");
-                }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
